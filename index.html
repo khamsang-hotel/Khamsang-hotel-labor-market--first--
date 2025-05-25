@@ -85,15 +85,6 @@
       background: #f5b301;
       height: 100%;
     }
-    .thank-you {
-      background: #4caf50;
-      color: white;
-      padding: 10px;
-      margin-top: 10px;
-      text-align: center;
-      border-radius: 5px;
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -157,7 +148,6 @@
         <textarea id="reviewText" placeholder="Write your feedback..." required></textarea>
         <br/>
         <button type="submit">Submit Feedback</button>
-        <div id="thankYouMessage" class="thank-you">Thank you for your feedback!</div>
       </form>
 
       <div class="rating-summary">
@@ -203,17 +193,6 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ data })
       });
-
-      // Show popup appreciation
-      alert('Thank you for your feedback! We appreciate your time.');
-
-      // Show on-page thank-you message
-      const thankYouDiv = document.getElementById('thankYouMessage');
-      thankYouDiv.style.display = 'block';
-
-      setTimeout(() => {
-        thankYouDiv.style.display = 'none';
-      }, 3000);
 
       document.getElementById('feedbackForm').reset();
       loadReviews();
